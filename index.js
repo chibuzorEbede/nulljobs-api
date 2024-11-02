@@ -55,13 +55,12 @@ app.get("/details/:jobGuid", (req, res) => {
     .then((response) => {
       singleJobDetails = response.data.jobs.filter(
         (job) => job.guid.replace(/[^\w\s]/gi, "") === jobGuid
-      );
+      )[0];
       //create a promise to return the single job detail
       const jobPromise = new Promise((resolve, reject) => {
         resolve(res.json(singleJobDetails));
         reject("job not found.");
       });
-      res.send(jobPromise);
     })
     .catch((err) => console.error(err));
 });
