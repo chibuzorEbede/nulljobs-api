@@ -17,6 +17,10 @@ const BASE_URL = `https://himalayas.app/jobs/api?`;
 
 //app api endpoints
 
+app.get("/", (req, res) => {
+  res.send("nulljobs api online");
+});
+
 //get initial jobs
 app.get("/job-listings", (req, res) => {
   //make request to api and send data
@@ -66,7 +70,7 @@ app.get("/details/:jobGuid", (req, res) => {
 });
 
 //set app port and start the app service
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`NullJobs server running on ${PORT} ....`);
