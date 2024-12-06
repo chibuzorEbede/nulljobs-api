@@ -39,7 +39,7 @@ app.get("/get-more", (req, res) => {
   //get more data from the api
 
   axios
-    .get(BASE_URL + `limit=20&offset=${currentOffset}`)
+    .get(BASE_URL + `limit=100&offset=${currentOffset}`)
     .then((response) => {
       res.json(response.data.jobs);
     })
